@@ -218,31 +218,31 @@ pub enum LlamaLoraAdapterRemoveError {
 
 /// get the time (in microseconds) according to llama.cpp
 /// ```
-/// # use llama_cpp_2::llama_time_us;
-/// # use llama_cpp_2::llama_backend::LlamaBackend;
+/// # use fellhorn_llama_cpp_2::llama_time_us;
+/// # use fellhorn_llama_cpp_2::llama_backend::LlamaBackend;
 /// let backend = LlamaBackend::init().unwrap();
 /// let time = llama_time_us();
 /// assert!(time > 0);
 /// ```
 #[must_use]
 pub fn llama_time_us() -> i64 {
-    unsafe { llama_cpp_sys_2::llama_time_us() }
+    unsafe { fellhorn_llama_cpp_sys_2::llama_time_us() }
 }
 
 /// get the max number of devices according to llama.cpp (this is generally cuda devices)
 /// ```
-/// # use llama_cpp_2::max_devices;
+/// # use fellhorn_llama_cpp_2::max_devices;
 /// let max_devices = max_devices();
 /// assert!(max_devices >= 0);
 /// ```
 #[must_use]
 pub fn max_devices() -> usize {
-    unsafe { llama_cpp_sys_2::llama_max_devices() }
+    unsafe { fellhorn_llama_cpp_sys_2::llama_max_devices() }
 }
 
 /// is memory mapping supported according to llama.cpp
 /// ```
-/// # use llama_cpp_2::mmap_supported;
+/// # use fellhorn_llama_cpp_2::mmap_supported;
 /// let mmap_supported = mmap_supported();
 /// if mmap_supported {
 ///   println!("mmap_supported!");
@@ -250,12 +250,12 @@ pub fn max_devices() -> usize {
 /// ```
 #[must_use]
 pub fn mmap_supported() -> bool {
-    unsafe { llama_cpp_sys_2::llama_supports_mmap() }
+    unsafe { fellhorn_llama_cpp_sys_2::llama_supports_mmap() }
 }
 
 /// is memory locking supported according to llama.cpp
 /// ```
-/// # use llama_cpp_2::mlock_supported;
+/// # use fellhorn_llama_cpp_2::mlock_supported;
 /// let mlock_supported = mlock_supported();
 /// if mlock_supported {
 ///    println!("mlock_supported!");
@@ -263,7 +263,7 @@ pub fn mmap_supported() -> bool {
 /// ```
 #[must_use]
 pub fn mlock_supported() -> bool {
-    unsafe { llama_cpp_sys_2::llama_supports_mlock() }
+    unsafe { fellhorn_llama_cpp_sys_2::llama_supports_mlock() }
 }
 
 /// An error that can occur when converting a token to a string.
@@ -315,9 +315,9 @@ pub enum ApplyChatTemplateError {
 ///
 /// ```
 /// # use std::time::Duration;
-/// # use llama_cpp_2::llama_backend::LlamaBackend;
+/// # use fellhorn_llama_cpp_2::llama_backend::LlamaBackend;
 /// let backend = LlamaBackend::init().unwrap();
-/// use llama_cpp_2::ggml_time_us;
+/// use fellhorn_llama_cpp_2::ggml_time_us;
 ///
 /// let start = ggml_time_us();
 ///
@@ -330,13 +330,13 @@ pub enum ApplyChatTemplateError {
 /// assert!(elapsed >= 10)
 #[must_use]
 pub fn ggml_time_us() -> i64 {
-    unsafe { llama_cpp_sys_2::ggml_time_us() }
+    unsafe { fellhorn_llama_cpp_sys_2::ggml_time_us() }
 }
 
 /// checks if mlock is supported
 ///
 /// ```
-/// # use llama_cpp_2::llama_supports_mlock;
+/// # use fellhorn_llama_cpp_2::llama_supports_mlock;
 ///
 /// if llama_supports_mlock() {
 ///   println!("mlock is supported!");
@@ -346,7 +346,7 @@ pub fn ggml_time_us() -> i64 {
 /// ```
 #[must_use]
 pub fn llama_supports_mlock() -> bool {
-    unsafe { llama_cpp_sys_2::llama_supports_mlock() }
+    unsafe { fellhorn_llama_cpp_sys_2::llama_supports_mlock() }
 }
 
 /// Options to configure how llama.cpp logs are intercepted.
@@ -365,7 +365,7 @@ impl LogOptions {
 }
 
 extern "C" fn logs_to_trace(
-    level: llama_cpp_sys_2::ggml_log_level,
+    level: fellhorn_llama_cpp_sys_2::ggml_log_level,
     text: *const ::std::os::raw::c_char,
     data: *mut ::std::os::raw::c_void,
 ) {
@@ -396,7 +396,7 @@ extern "C" fn logs_to_trace(
     // distinguish typo from intentional support for CONT, we have to buffer until the next message comes in
     // to know how to flush it.
 
-    if level == llama_cpp_sys_2::GGML_LOG_LEVEL_CONT {
+    if level == fellhorn_llama_cpp_sys_2::GGML_LOG_LEVEL_CONT {
         log_state.cont_buffered_log(text);
     } else if text.ends_with('\n') {
         log_state.emit_non_cont_line(level, text);
@@ -423,7 +423,7 @@ pub fn send_logs_to_tracing(options: LogOptions) {
 
     unsafe {
         // GGML has to be set after llama since setting llama sets ggml as well.
-        llama_cpp_sys_2::llama_log_set(Some(logs_to_trace), llama_heap_state as *mut _);
-        llama_cpp_sys_2::ggml_log_set(Some(logs_to_trace), ggml_heap_state as *mut _);
+        fellhorn_llama_cpp_sys_2::llama_log_set(Some(logs_to_trace), llama_heap_state as *mut _);
+        fellhorn_llama_cpp_sys_2::ggml_log_set(Some(logs_to_trace), ggml_heap_state as *mut _);
     }
 }

@@ -12,7 +12,7 @@ use crate::token::LlamaToken;
 #[repr(transparent)]
 #[allow(clippy::module_name_repetitions)]
 pub struct LlamaLogitBias {
-    logit_bias: llama_cpp_sys_2::llama_logit_bias,
+    logit_bias: fellhorn_llama_cpp_sys_2::llama_logit_bias,
 }
 
 impl LlamaLogitBias {
@@ -20,14 +20,14 @@ impl LlamaLogitBias {
     ///
     /// # Examples
     /// ```
-    /// # use llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
+    /// # use fellhorn_llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
     /// let token = LlamaToken::new(1);
     /// let bias = LlamaLogitBias::new(token, 1.5);
     /// ```
     #[must_use]
     pub fn new(LlamaToken(token): LlamaToken, bias: f32) -> Self {
         Self {
-            logit_bias: llama_cpp_sys_2::llama_logit_bias { token, bias },
+            logit_bias: fellhorn_llama_cpp_sys_2::llama_logit_bias { token, bias },
         }
     }
 
@@ -35,7 +35,7 @@ impl LlamaLogitBias {
     ///
     /// # Examples
     /// ```
-    /// # use llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
+    /// # use fellhorn_llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
     /// let token = LlamaToken::new(1);
     /// let bias = LlamaLogitBias::new(token, 1.5);
     /// assert_eq!(bias.token(), token);
@@ -49,7 +49,7 @@ impl LlamaLogitBias {
     ///
     /// # Examples
     /// ```
-    /// # use llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
+    /// # use fellhorn_llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
     /// let token = LlamaToken::new(1);
     /// let bias = LlamaLogitBias::new(token, 1.5);
     /// assert_eq!(bias.bias(), 1.5);
@@ -63,7 +63,7 @@ impl LlamaLogitBias {
     ///
     /// # Examples
     /// ```
-    /// # use llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
+    /// # use fellhorn_llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
     /// let token = LlamaToken::new(1);
     /// let mut bias = LlamaLogitBias::new(token, 1.5);
     /// let new_token = LlamaToken::new(2);
@@ -78,7 +78,7 @@ impl LlamaLogitBias {
     ///
     /// # Examples
     /// ```
-    /// # use llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
+    /// # use fellhorn_llama_cpp_2::token::{LlamaToken, logit_bias::LlamaLogitBias};
     /// let token = LlamaToken::new(1);
     /// let mut bias = LlamaLogitBias::new(token, 1.5);
     /// bias.set_bias(2.0);

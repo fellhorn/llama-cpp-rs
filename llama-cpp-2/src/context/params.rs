@@ -97,7 +97,7 @@ pub enum KvCacheType {
     /// the runtime will operate with that type).
     /// This variant preserves API compatibility when new `ggml_type` values are
     /// introduced in the future.
-    Unknown(llama_cpp_sys_2::ggml_type),
+    Unknown(fellhorn_llama_cpp_sys_2::ggml_type),
     F32,
     F16,
     Q4_0,
@@ -132,81 +132,81 @@ pub enum KvCacheType {
     MXFP4,
 }
 
-impl From<KvCacheType> for llama_cpp_sys_2::ggml_type {
+impl From<KvCacheType> for fellhorn_llama_cpp_sys_2::ggml_type {
     fn from(value: KvCacheType) -> Self {
         match value {
             KvCacheType::Unknown(raw) => raw,
-            KvCacheType::F32 => llama_cpp_sys_2::GGML_TYPE_F32,
-            KvCacheType::F16 => llama_cpp_sys_2::GGML_TYPE_F16,
-            KvCacheType::Q4_0 => llama_cpp_sys_2::GGML_TYPE_Q4_0,
-            KvCacheType::Q4_1 => llama_cpp_sys_2::GGML_TYPE_Q4_1,
-            KvCacheType::Q5_0 => llama_cpp_sys_2::GGML_TYPE_Q5_0,
-            KvCacheType::Q5_1 => llama_cpp_sys_2::GGML_TYPE_Q5_1,
-            KvCacheType::Q8_0 => llama_cpp_sys_2::GGML_TYPE_Q8_0,
-            KvCacheType::Q8_1 => llama_cpp_sys_2::GGML_TYPE_Q8_1,
-            KvCacheType::Q2_K => llama_cpp_sys_2::GGML_TYPE_Q2_K,
-            KvCacheType::Q3_K => llama_cpp_sys_2::GGML_TYPE_Q3_K,
-            KvCacheType::Q4_K => llama_cpp_sys_2::GGML_TYPE_Q4_K,
-            KvCacheType::Q5_K => llama_cpp_sys_2::GGML_TYPE_Q5_K,
-            KvCacheType::Q6_K => llama_cpp_sys_2::GGML_TYPE_Q6_K,
-            KvCacheType::Q8_K => llama_cpp_sys_2::GGML_TYPE_Q8_K,
-            KvCacheType::IQ2_XXS => llama_cpp_sys_2::GGML_TYPE_IQ2_XXS,
-            KvCacheType::IQ2_XS => llama_cpp_sys_2::GGML_TYPE_IQ2_XS,
-            KvCacheType::IQ3_XXS => llama_cpp_sys_2::GGML_TYPE_IQ3_XXS,
-            KvCacheType::IQ1_S => llama_cpp_sys_2::GGML_TYPE_IQ1_S,
-            KvCacheType::IQ4_NL => llama_cpp_sys_2::GGML_TYPE_IQ4_NL,
-            KvCacheType::IQ3_S => llama_cpp_sys_2::GGML_TYPE_IQ3_S,
-            KvCacheType::IQ2_S => llama_cpp_sys_2::GGML_TYPE_IQ2_S,
-            KvCacheType::IQ4_XS => llama_cpp_sys_2::GGML_TYPE_IQ4_XS,
-            KvCacheType::I8 => llama_cpp_sys_2::GGML_TYPE_I8,
-            KvCacheType::I16 => llama_cpp_sys_2::GGML_TYPE_I16,
-            KvCacheType::I32 => llama_cpp_sys_2::GGML_TYPE_I32,
-            KvCacheType::I64 => llama_cpp_sys_2::GGML_TYPE_I64,
-            KvCacheType::F64 => llama_cpp_sys_2::GGML_TYPE_F64,
-            KvCacheType::IQ1_M => llama_cpp_sys_2::GGML_TYPE_IQ1_M,
-            KvCacheType::BF16 => llama_cpp_sys_2::GGML_TYPE_BF16,
-            KvCacheType::TQ1_0 => llama_cpp_sys_2::GGML_TYPE_TQ1_0,
-            KvCacheType::TQ2_0 => llama_cpp_sys_2::GGML_TYPE_TQ2_0,
-            KvCacheType::MXFP4 => llama_cpp_sys_2::GGML_TYPE_MXFP4,
+            KvCacheType::F32 => fellhorn_llama_cpp_sys_2::GGML_TYPE_F32,
+            KvCacheType::F16 => fellhorn_llama_cpp_sys_2::GGML_TYPE_F16,
+            KvCacheType::Q4_0 => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q4_0,
+            KvCacheType::Q4_1 => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q4_1,
+            KvCacheType::Q5_0 => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q5_0,
+            KvCacheType::Q5_1 => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q5_1,
+            KvCacheType::Q8_0 => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q8_0,
+            KvCacheType::Q8_1 => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q8_1,
+            KvCacheType::Q2_K => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q2_K,
+            KvCacheType::Q3_K => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q3_K,
+            KvCacheType::Q4_K => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q4_K,
+            KvCacheType::Q5_K => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q5_K,
+            KvCacheType::Q6_K => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q6_K,
+            KvCacheType::Q8_K => fellhorn_llama_cpp_sys_2::GGML_TYPE_Q8_K,
+            KvCacheType::IQ2_XXS => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ2_XXS,
+            KvCacheType::IQ2_XS => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ2_XS,
+            KvCacheType::IQ3_XXS => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ3_XXS,
+            KvCacheType::IQ1_S => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ1_S,
+            KvCacheType::IQ4_NL => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ4_NL,
+            KvCacheType::IQ3_S => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ3_S,
+            KvCacheType::IQ2_S => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ2_S,
+            KvCacheType::IQ4_XS => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ4_XS,
+            KvCacheType::I8 => fellhorn_llama_cpp_sys_2::GGML_TYPE_I8,
+            KvCacheType::I16 => fellhorn_llama_cpp_sys_2::GGML_TYPE_I16,
+            KvCacheType::I32 => fellhorn_llama_cpp_sys_2::GGML_TYPE_I32,
+            KvCacheType::I64 => fellhorn_llama_cpp_sys_2::GGML_TYPE_I64,
+            KvCacheType::F64 => fellhorn_llama_cpp_sys_2::GGML_TYPE_F64,
+            KvCacheType::IQ1_M => fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ1_M,
+            KvCacheType::BF16 => fellhorn_llama_cpp_sys_2::GGML_TYPE_BF16,
+            KvCacheType::TQ1_0 => fellhorn_llama_cpp_sys_2::GGML_TYPE_TQ1_0,
+            KvCacheType::TQ2_0 => fellhorn_llama_cpp_sys_2::GGML_TYPE_TQ2_0,
+            KvCacheType::MXFP4 => fellhorn_llama_cpp_sys_2::GGML_TYPE_MXFP4,
         }
     }
 }
 
-impl From<llama_cpp_sys_2::ggml_type> for KvCacheType {
-    fn from(value: llama_cpp_sys_2::ggml_type) -> Self {
+impl From<fellhorn_llama_cpp_sys_2::ggml_type> for KvCacheType {
+    fn from(value: fellhorn_llama_cpp_sys_2::ggml_type) -> Self {
         match value {
-            x if x == llama_cpp_sys_2::GGML_TYPE_F32 => KvCacheType::F32,
-            x if x == llama_cpp_sys_2::GGML_TYPE_F16 => KvCacheType::F16,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q4_0 => KvCacheType::Q4_0,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q4_1 => KvCacheType::Q4_1,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q5_0 => KvCacheType::Q5_0,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q5_1 => KvCacheType::Q5_1,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q8_0 => KvCacheType::Q8_0,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q8_1 => KvCacheType::Q8_1,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q2_K => KvCacheType::Q2_K,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q3_K => KvCacheType::Q3_K,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q4_K => KvCacheType::Q4_K,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q5_K => KvCacheType::Q5_K,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q6_K => KvCacheType::Q6_K,
-            x if x == llama_cpp_sys_2::GGML_TYPE_Q8_K => KvCacheType::Q8_K,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ2_XXS => KvCacheType::IQ2_XXS,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ2_XS => KvCacheType::IQ2_XS,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ3_XXS => KvCacheType::IQ3_XXS,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ1_S => KvCacheType::IQ1_S,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ4_NL => KvCacheType::IQ4_NL,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ3_S => KvCacheType::IQ3_S,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ2_S => KvCacheType::IQ2_S,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ4_XS => KvCacheType::IQ4_XS,
-            x if x == llama_cpp_sys_2::GGML_TYPE_I8 => KvCacheType::I8,
-            x if x == llama_cpp_sys_2::GGML_TYPE_I16 => KvCacheType::I16,
-            x if x == llama_cpp_sys_2::GGML_TYPE_I32 => KvCacheType::I32,
-            x if x == llama_cpp_sys_2::GGML_TYPE_I64 => KvCacheType::I64,
-            x if x == llama_cpp_sys_2::GGML_TYPE_F64 => KvCacheType::F64,
-            x if x == llama_cpp_sys_2::GGML_TYPE_IQ1_M => KvCacheType::IQ1_M,
-            x if x == llama_cpp_sys_2::GGML_TYPE_BF16 => KvCacheType::BF16,
-            x if x == llama_cpp_sys_2::GGML_TYPE_TQ1_0 => KvCacheType::TQ1_0,
-            x if x == llama_cpp_sys_2::GGML_TYPE_TQ2_0 => KvCacheType::TQ2_0,
-            x if x == llama_cpp_sys_2::GGML_TYPE_MXFP4 => KvCacheType::MXFP4,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_F32 => KvCacheType::F32,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_F16 => KvCacheType::F16,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q4_0 => KvCacheType::Q4_0,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q4_1 => KvCacheType::Q4_1,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q5_0 => KvCacheType::Q5_0,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q5_1 => KvCacheType::Q5_1,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q8_0 => KvCacheType::Q8_0,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q8_1 => KvCacheType::Q8_1,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q2_K => KvCacheType::Q2_K,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q3_K => KvCacheType::Q3_K,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q4_K => KvCacheType::Q4_K,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q5_K => KvCacheType::Q5_K,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q6_K => KvCacheType::Q6_K,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_Q8_K => KvCacheType::Q8_K,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ2_XXS => KvCacheType::IQ2_XXS,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ2_XS => KvCacheType::IQ2_XS,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ3_XXS => KvCacheType::IQ3_XXS,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ1_S => KvCacheType::IQ1_S,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ4_NL => KvCacheType::IQ4_NL,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ3_S => KvCacheType::IQ3_S,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ2_S => KvCacheType::IQ2_S,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ4_XS => KvCacheType::IQ4_XS,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_I8 => KvCacheType::I8,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_I16 => KvCacheType::I16,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_I32 => KvCacheType::I32,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_I64 => KvCacheType::I64,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_F64 => KvCacheType::F64,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_IQ1_M => KvCacheType::IQ1_M,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_BF16 => KvCacheType::BF16,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_TQ1_0 => KvCacheType::TQ1_0,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_TQ2_0 => KvCacheType::TQ2_0,
+            x if x == fellhorn_llama_cpp_sys_2::GGML_TYPE_MXFP4 => KvCacheType::MXFP4,
             _ => KvCacheType::Unknown(value),
         }
     }
@@ -220,7 +220,7 @@ impl From<llama_cpp_sys_2::ggml_type> for KvCacheType {
 ///
 /// ```rust
 /// # use std::num::NonZeroU32;
-/// use llama_cpp_2::context::params::LlamaContextParams;
+/// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
 ///
 ///let ctx_params = LlamaContextParams::default()
 ///    .with_n_ctx(NonZeroU32::new(2048));
@@ -234,7 +234,7 @@ impl From<llama_cpp_sys_2::ggml_type> for KvCacheType {
     clippy::module_name_repetitions
 )]
 pub struct LlamaContextParams {
-    pub(crate) context_params: llama_cpp_sys_2::llama_context_params,
+    pub(crate) context_params: fellhorn_llama_cpp_sys_2::llama_context_params,
 }
 
 /// SAFETY: we do not currently allow setting or reading the pointers that cause this to not be automatically send or sync.
@@ -248,7 +248,7 @@ impl LlamaContextParams {
     ///
     /// ```rust
     /// # use std::num::NonZeroU32;
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// let params = params.with_n_ctx(NonZeroU32::new(2048));
     /// assert_eq!(params.n_ctx(), NonZeroU32::new(2048));
@@ -266,7 +266,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// assert_eq!(params.n_ctx(), std::num::NonZeroU32::new(512));
     #[must_use]
     pub fn n_ctx(&self) -> Option<NonZeroU32> {
@@ -279,7 +279,7 @@ impl LlamaContextParams {
     ///
     /// ```rust
     /// # use std::num::NonZeroU32;
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///     .with_n_batch(2048);
     /// assert_eq!(params.n_batch(), 2048);
@@ -295,7 +295,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// assert_eq!(params.n_batch(), 2048);
     /// ```
@@ -310,7 +310,7 @@ impl LlamaContextParams {
     ///
     /// ```rust
     /// # use std::num::NonZeroU32;
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///     .with_n_ubatch(512);
     /// assert_eq!(params.n_ubatch(), 512);
@@ -326,7 +326,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// assert_eq!(params.n_ubatch(), 512);
     /// ```
@@ -339,7 +339,7 @@ impl LlamaContextParams {
     #[must_use]
     pub fn with_flash_attention_policy(
         mut self,
-        policy: llama_cpp_sys_2::llama_flash_attn_type,
+        policy: fellhorn_llama_cpp_sys_2::llama_flash_attn_type,
     ) -> Self {
         self.context_params.flash_attn_type = policy;
         self
@@ -347,7 +347,7 @@ impl LlamaContextParams {
 
     /// Get the flash attention policy
     #[must_use]
-    pub fn flash_attention_policy(&self) -> llama_cpp_sys_2::llama_flash_attn_type {
+    pub fn flash_attention_policy(&self) -> fellhorn_llama_cpp_sys_2::llama_flash_attn_type {
         self.context_params.flash_attn_type
     }
 
@@ -356,7 +356,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///     .with_offload_kqv(false);
     /// assert_eq!(params.offload_kqv(), false);
@@ -372,7 +372,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// assert_eq!(params.offload_kqv(), true);
     /// ```
@@ -386,7 +386,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::{LlamaContextParams, RopeScalingType};
+    /// use fellhorn_llama_cpp_2::context::params::{LlamaContextParams, RopeScalingType};
     /// let params = LlamaContextParams::default()
     ///     .with_rope_scaling_type(RopeScalingType::Linear);
     /// assert_eq!(params.rope_scaling_type(), RopeScalingType::Linear);
@@ -402,8 +402,8 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
-    /// assert_eq!(params.rope_scaling_type(), llama_cpp_2::context::params::RopeScalingType::Unspecified);
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
+    /// assert_eq!(params.rope_scaling_type(), fellhorn_llama_cpp_2::context::params::RopeScalingType::Unspecified);
     /// ```
     #[must_use]
     pub fn rope_scaling_type(&self) -> RopeScalingType {
@@ -415,7 +415,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///    .with_rope_freq_base(0.5);
     /// assert_eq!(params.rope_freq_base(), 0.5);
@@ -431,7 +431,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// assert_eq!(params.rope_freq_base(), 0.0);
     /// ```
     #[must_use]
@@ -444,7 +444,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///   .with_rope_freq_scale(0.5);
     /// assert_eq!(params.rope_freq_scale(), 0.5);
@@ -460,7 +460,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// assert_eq!(params.rope_freq_scale(), 0.0);
     /// ```
     #[must_use]
@@ -473,7 +473,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// assert_eq!(params.n_threads(), 4);
     /// ```
     #[must_use]
@@ -486,7 +486,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// assert_eq!(params.n_threads_batch(), 4);
     /// ```
     #[must_use]
@@ -499,7 +499,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///    .with_n_threads(8);
     /// assert_eq!(params.n_threads(), 8);
@@ -515,7 +515,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///    .with_n_threads_batch(8);
     /// assert_eq!(params.n_threads_batch(), 8);
@@ -531,7 +531,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// assert!(!params.embeddings());
     /// ```
     #[must_use]
@@ -544,7 +544,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///    .with_embeddings(true);
     /// assert!(params.embeddings());
@@ -561,20 +561,20 @@ impl LlamaContextParams {
     ///
     /// ```no_run
     /// extern "C" fn cb_eval_fn(
-    ///     t: *mut llama_cpp_sys_2::ggml_tensor,
+    ///     t: *mut fellhorn_llama_cpp_sys_2::ggml_tensor,
     ///     ask: bool,
     ///     user_data: *mut std::ffi::c_void,
     /// ) -> bool {
     ///     false
     /// }
     ///
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default().with_cb_eval(Some(cb_eval_fn));
     /// ```
     #[must_use]
     pub fn with_cb_eval(
         mut self,
-        cb_eval: llama_cpp_sys_2::ggml_backend_sched_eval_callback,
+        cb_eval: fellhorn_llama_cpp_sys_2::ggml_backend_sched_eval_callback,
     ) -> Self {
         self.context_params.cb_eval = cb_eval;
         self
@@ -585,7 +585,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```no_run
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// let user_data = std::ptr::null_mut();
     /// let params = params.with_cb_eval_user_data(user_data);
@@ -601,7 +601,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::{LlamaContextParams, LlamaPoolingType};
+    /// use fellhorn_llama_cpp_2::context::params::{LlamaContextParams, LlamaPoolingType};
     /// let params = LlamaContextParams::default()
     ///     .with_pooling_type(LlamaPoolingType::Last);
     /// assert_eq!(params.pooling_type(), LlamaPoolingType::Last);
@@ -617,8 +617,8 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
-    /// assert_eq!(params.pooling_type(), llama_cpp_2::context::params::LlamaPoolingType::Unspecified);
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
+    /// assert_eq!(params.pooling_type(), fellhorn_llama_cpp_2::context::params::LlamaPoolingType::Unspecified);
     /// ```
     #[must_use]
     pub fn pooling_type(&self) -> LlamaPoolingType {
@@ -630,7 +630,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///     .with_swa_full(false);
     /// assert_eq!(params.swa_full(), false);
@@ -646,7 +646,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// assert_eq!(params.swa_full(), true);
     /// ```
@@ -660,7 +660,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default()
     ///     .with_n_seq_max(64);
     /// assert_eq!(params.n_seq_max(), 64);
@@ -676,7 +676,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::LlamaContextParams;
+    /// use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
     /// let params = LlamaContextParams::default();
     /// assert_eq!(params.n_seq_max(), 1);
     /// ```
@@ -685,7 +685,7 @@ impl LlamaContextParams {
         self.context_params.n_seq_max
     }
     /// Set the KV cache data type for K
-    /// use llama_cpp_2::context::params::{LlamaContextParams, KvCacheType};
+    /// use fellhorn_llama_cpp_2::context::params::{LlamaContextParams, KvCacheType};
     /// let params = LlamaContextParams::default().with_type_k(KvCacheType::Q4_0);
     /// assert_eq!(params.type_k(), KvCacheType::Q4_0);
     /// ```
@@ -700,7 +700,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// let _ = params.type_k();
     /// ```
     #[must_use]
@@ -713,7 +713,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// use llama_cpp_2::context::params::{LlamaContextParams, KvCacheType};
+    /// use fellhorn_llama_cpp_2::context::params::{LlamaContextParams, KvCacheType};
     /// let params = LlamaContextParams::default().with_type_v(KvCacheType::Q4_1);
     /// assert_eq!(params.type_v(), KvCacheType::Q4_1);
     /// ```
@@ -728,7 +728,7 @@ impl LlamaContextParams {
     /// # Examples
     ///
     /// ```rust
-    /// let params = llama_cpp_2::context::params::LlamaContextParams::default();
+    /// let params = fellhorn_llama_cpp_2::context::params::LlamaContextParams::default();
     /// let _ = params.type_v();
     /// ```
     #[must_use]
@@ -740,14 +740,14 @@ impl LlamaContextParams {
 /// Default parameters for `LlamaContext`. (as defined in llama.cpp by `llama_context_default_params`)
 /// ```
 /// # use std::num::NonZeroU32;
-/// use llama_cpp_2::context::params::{LlamaContextParams, RopeScalingType};
+/// use fellhorn_llama_cpp_2::context::params::{LlamaContextParams, RopeScalingType};
 /// let params = LlamaContextParams::default();
 /// assert_eq!(params.n_ctx(), NonZeroU32::new(512), "n_ctx should be 512");
 /// assert_eq!(params.rope_scaling_type(), RopeScalingType::Unspecified);
 /// ```
 impl Default for LlamaContextParams {
     fn default() -> Self {
-        let context_params = unsafe { llama_cpp_sys_2::llama_context_default_params() };
+        let context_params = unsafe { fellhorn_llama_cpp_sys_2::llama_context_default_params() };
         Self { context_params }
     }
 }
