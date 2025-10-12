@@ -9,15 +9,15 @@
 use anyhow::{anyhow, bail, Context, Result};
 use clap::Parser;
 use hf_hub::api::sync::ApiBuilder;
-use llama_cpp_2::context::params::LlamaContextParams;
-use llama_cpp_2::llama_backend::LlamaBackend;
-use llama_cpp_2::llama_batch::LlamaBatch;
-use llama_cpp_2::model::params::kv_overrides::ParamOverrideValue;
-use llama_cpp_2::model::params::LlamaModelParams;
-use llama_cpp_2::model::LlamaModel;
-use llama_cpp_2::model::{AddBos, Special};
-use llama_cpp_2::sampling::LlamaSampler;
-use llama_cpp_2::{ggml_time_us, send_logs_to_tracing, LogOptions};
+use fellhorn_llama_cpp_2::context::params::LlamaContextParams;
+use fellhorn_llama_cpp_2::llama_backend::LlamaBackend;
+use fellhorn_llama_cpp_2::llama_batch::LlamaBatch;
+use fellhorn_llama_cpp_2::model::params::kv_overrides::ParamOverrideValue;
+use fellhorn_llama_cpp_2::model::params::LlamaModelParams;
+use fellhorn_llama_cpp_2::model::LlamaModel;
+use fellhorn_llama_cpp_2::model::{AddBos, Special};
+use fellhorn_llama_cpp_2::sampling::LlamaSampler;
+use fellhorn_llama_cpp_2::{ggml_time_us, send_logs_to_tracing, LogOptions};
 
 use std::ffi::CString;
 use std::io::Write;
